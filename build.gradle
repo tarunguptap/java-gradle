@@ -1,0 +1,21 @@
+ext {
+	javaVersion = 1.7
+	springVersion = '3.2.16.RELEASE'	
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile 'commons-collections:commons-collections:3.2'
+    compile 'commons-lang:commons-lang:2.4'
+}
