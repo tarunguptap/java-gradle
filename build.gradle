@@ -16,6 +16,26 @@ repositories {
 
 
 dependencies {
+	compile 'org.postgresql:postgresql:9.3-1103-jdbc41'
+
 	compile 'commons-collections:commons-collections:3.2'
     compile 'commons-lang:commons-lang:2.4'
+    
+    
+    compile 'org.springframework:spring-beans:' + springVersion
+    compile 'org.springframework:spring-context:' + springVersion
+    compile 'org.springframework:spring-orm:' + springVersion
+    
+    
+    compile 'org.hibernate:hibernate:3.3.2.GA'
+    compile 'org.hibernate:hibernate-core:3.3.2.GA'
+    compile 'org.hibernate:hibernate-annotations:3.3.1.GA'
+    compile 'org.hibernate:ejb3-persistence:1.0.2.GA'
+    compile 'org.hibernate:hibernate-validator:4.0.2.GA'
+    
+    compile 'org.apache.httpcomponents:httpclient:4.2.3'
+    
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+    
+    runtime 'org.javassist:javassist:3.15.0-GA'
 }

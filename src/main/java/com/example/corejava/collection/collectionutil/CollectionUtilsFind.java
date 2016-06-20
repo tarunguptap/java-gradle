@@ -1,4 +1,4 @@
-package com.example.collection.collectionutil;
+package com.example.corejava.collection.collectionutil;
 
 import java.util.HashSet;
 import java.util.Set;
