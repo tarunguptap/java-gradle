@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+		<property name="url" value="jdbc:mysql://localhost:3306/bebo" /> 
+		<property name="username" value="root" /> 
+		<property name="password" value="root" />
+	</bean>
+  
+    <bean id="hibernateTemplate"
+      class="org.springframework.orm.hibernate3.HibernateTemplate">
+      <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <!--
+    AOP advisor that will provide declarative transaction management based on
+    attributes. It's possible to add arbitrary custom Advisor implementations
+    as well, and they will also be evaluated and applied automatically.
+  -->
+  <bean
+    class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+    <property name="transactionInterceptor">
+      <ref bean="transactionInterceptor" />
+    </property>
+  </bean>
+
+  <!--
+    Transaction interceptor to use for auto-proxy creation.
+    Transaction attributes will be read in from JDK 1.5+ annotations.
+  -->
+  <bean id="transactionInterceptor"
+    class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <property name="transactionManager">
+      <ref bean="hibernateTransactionManager" />
+    </property>
+    <property name="transactionAttributeSource">
+      <bean
+        class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource" />
+    </property>
+  </bean>
+  
+   <!-- newTransactionTemplate bean is used to wrap the various queries in single transaction -->
+    <bean id="newTransactionTemplate"
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="hibernateTransactionManager"/>
+      <property name="propagationBehaviorName" value="PROPAGATION_REQUIRES_NEW"/>
+  </bean>
+  
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+  <property name="sessionFactory" ref="sessionFactory" /> 
+  </bean>
+	<!--bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" /> 
+		<property name="url" value="jdbc:hsqldb:hsql://localhost" /> 
+		<property name="username" value="sa" /> 
+		<property name="password" value="" />
+	</bean-->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!--<property name="annotatedClasses">
+			<list>
+                <value>HibernateTest.ScrollableTest.ScrollModel</value>
+                <value>HibernateTest.model.ModelSub</value>
+                <value>HibernateTest.model.Customer</value>
+                <value>HibernateTest.model.ContactDeatil</value>
+			</list>
+		</property> -->
+        <property name="mappingDirectoryLocations">
+          <list>
+          <!--  <value>/WEB-INF/classes/com/flipswap/domain</value> -->
+            <value>/HibernateMappingXML/OneToManySetTest/com/mapping</value>
+          </list>
+        </property>
+    <!--<property name="mappingLocations">
+          <list>
+            <value>classpath:com/opensymphony/workflow/spi/hibernate3/HibernateCurrentStep.hbm.xml</value>
+            <value>classpath:com/opensymphony/workflow/spi/hibernate3/HibernateHistoryStep.hbm.xml</value>
+            <value>classpath:com/opensymphony/workflow/spi/hibernate3/HibernateWorkflowEntry.hbm.xml</value>
+          </list>
+        </property> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="connection.autocommit">true</prop>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.show_sql">true</prop>
+                 <prop key="hibernate.connection.pool_size">1</prop>
+			</props>
+		</property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+		
+</beans>
+
+
+

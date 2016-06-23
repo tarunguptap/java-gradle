@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Employee" table="OneToMany_Employee"> 
+		<id name="id" type="int" column="emp_id" >
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" type="java.lang.String" column="emp_name" not-null="true" length="50"></property>
+	
+	
+	<set  name="empaddr" table="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.OneToMany_Employee_Address" cascade="all">
+         <!-- name ="empaddr" is the name of the EmployeeAddress class variable defined in the Employee class -->
+            <key>
+                <column name="employee_id" not-null="true" />
+            </key>
+            <one-to-many class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.EmployeeAddress" />
+        </set>
+
+	
+	</class>
+
+	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.EmployeeAddress" table="OneToMany_Employee_Address">
+		 <id name="id" type="int" column="empaddr_id">
+			<generator class="increment"/>
+		</id>
+		<property name="address" column="address" type="java.lang.String" not-null="true" length="50"></property>
+		<property name="city" column="city" type="java.lang.String" not-null="true" length="50"></property>
+		
+		<many-to-one name="eid" class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Employee" >
+		<!-- name ="eid" is the name of the Employee class variable defined in the EmployeeAddress class -->
+ 	 <column name="employee_id" /> 
+ 	 </many-to-one>
+
+        	
+	</class>
+
+</hibernate-mapping>

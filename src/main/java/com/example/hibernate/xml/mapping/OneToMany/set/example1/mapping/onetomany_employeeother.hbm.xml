@@ -1,0 +1,68 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Employee" table="Employee"> 
+    <id name="id" type="int" column="emp_id" >
+      <generator class="increment"></generator>
+    </id>
+    <property name="name" type="java.lang.String" column="emp_name" not-null="true" length="50"></property>
+  
+  
+  <set  name="empaddr" lazy="true" cascade="all, delete-orphan" inverse="true"
+      order-by="itemdatawipehistoryid DESC" optimistic-lock="false">
+            <key column ="employee_id" not-null="true" foreign-key="fk_employee_emp_id"/>
+            <one-to-many class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.EmployeeAddress" />
+        </set>
+  </class>
+
+  <class name="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.EmployeeAddress" table="Employee_Address">
+     <id name="id" type="int" column="empaddr_id">
+      <generator class="increment"/>
+    </id>
+    <property name="address" column="address" type="java.lang.String" not-null="true" length="50"></property>
+    <property name="city" column="city" type="java.lang.String" not-null="true" length="50"></property>
+    
+    <many-to-one name="eid" class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Employee" cascade="none" column ="employee_id" /> 
+	<one-to-one name="contact" class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Contact" property-ref="empAddrId" cascade="all" ></one-to-one>
+  </class>
+
+	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Contact" table="Employee_contact"
+		dynamic-update="true" dynamic-insert="true">
+		
+		 <id name="id" type="long" column="contactid" >
+	      	<generator class="increment"></generator>
+	     </id>
+
+		<version name="version" column="version"
+			type="java.lang.Integer" unsaved-value="null" />
+		
+		<property name="empAddrId" type="java.lang.Long" column="employeeaddressid" />
+		
+		<property name="companyTitle" type="java.lang.String"
+			update="true" insert="true" column="companytitle" />
+			
+		<property name="companyName" type="java.lang.String"
+			update="true" insert="true" column="companyname" />
+
+		<component name="name" class="com.example.hibernate.xml.mapping.OneToMany.set.example1.model.Name">
+			<property name="firstName" type="java.lang.String"
+				update="true" insert="true" column="firstname" not-null="true" />
+
+			<property name="lastName" type="java.lang.String"
+				update="true" insert="true" column="lastname" not-null="true" />
+
+			<property name="middleInitial" type="java.lang.String"
+				update="true" insert="true" column="middleinitial" length="1" />
+		</component>
+
+		<property name="contactType" update="true" insert="true"
+			column="contacttype" not-null="true">
+			<type name="commonutil.usertype.EnumUserType">
+				<param name="enumClassName">com.example.hibernate.xml.mapping.OneToMany.set.example1.enums.ContactType</param>
+			</type>
+		</property>
+	</class>
+	
+</hibernate-mapping>

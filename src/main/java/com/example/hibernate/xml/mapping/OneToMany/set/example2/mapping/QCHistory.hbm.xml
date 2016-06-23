@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.QCHistory" table="fs_item_qchistory"
+		dynamic-update="true" dynamic-insert="true">
+		
+		<id name="id" column="itemqchistoryid" type="long" 
+		unsaved-value="-1">
+			<generator class="native" />
+		</id>
+		<version name="version" column="version"
+			type="java.lang.Integer" unsaved-value="null" />
+			
+		<property name="qcDate" type="java.util.Date" column="qcdate" />	
+		
+		<property name="userName" type="java.lang.String" column="username" />	
+		
+         <many-to-one name="item" class="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Item"
+			cascade="none" update="true" insert="true" index="ix_item_itemid"
+			foreign-key="fk_item_itemid" column="itemid" not-null="true" />
+	</class>
+
+</hibernate-mapping>
