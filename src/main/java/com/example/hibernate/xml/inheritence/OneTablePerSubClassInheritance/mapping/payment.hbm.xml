@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+	$Id: Item.hbm.xml 457 2005-09-24 20:29:05Z Andrew Berman $
+-->
+<hibernate-mapping>
+	<class name="HibernateMappingXML.OneTablePerSubClassInheritance.LabelTestPack.model.Payment" table="payment"
+		dynamic-update="true" dynamic-insert="true">
+		
+		<id name="id" column="paymentId" type="long"
+			unsaved-value="-1">
+			<generator class="native" />
+		</id>
+
+		<version name="version" column="version"
+			type="java.lang.Integer" unsaved-value="null" />
+
+		<property name="amount" column="amtount" />
+
+		<joined-subclass name="HibernateMappingXML.OneTablePerSubClassInheritance.LabelTestPack.model.CreditCard" table="creditcard">
+			<key column="creditcardid" />
+			<property name="creditCardType" column="creditcardtype" length="10" />
+		</joined-subclass>
+
+		<joined-subclass name="HibernateMappingXML.OneTablePerSubClassInheritance.LabelTestPack.model.Cheque" table="cheque">
+			<key column="chequeid" />
+			<property name="chequeType" column="chequetype" length="10" />
+		</joined-subclass>
+	  	
+	</class>
+
+</hibernate-mapping>

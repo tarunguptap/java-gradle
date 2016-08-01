@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+
+	$Id$
+
+ -->
+<hibernate-mapping>
+	<class name="HibernateMappingXML.OneTablePerClassInheritanceTest.com.model.LabelConstant" table="ref_labelconstant" 
+	discriminator-value="QC_STATUS_RESPONSE"
+
+		dynamic-insert="true" dynamic-update="true" lazy="false">
+
+		<id name="id" column="labelconstantid" type="long"
+
+			unsaved-value="-1">
+			<generator class="native" />
+		</id>
+		<discriminator column="type" type="java.lang.String" length="50" />
+		<version name="version" column="version"
+
+			type="java.lang.Integer" unsaved-value="null" />
+			
+		<property name="code" type="java.lang.String" update="true"
+
+			insert="true" column="code" />
+
+		<property name="localizedText"
+
+			 type="java.lang.String"
+
+			column="localizedtext_labelcode" unique="true" />	
+			
+		<property name="enLocaleText"
+			 type="java.lang.String"
+			column="localizedtext_labelcode" insert="false"  update="false"/>
+				
+		<property name="nonLocalizedText" type="java.lang.String" update="true"
+			insert="true" column="nonlocalizedtext" not-null="false" unique="false"/>	
+		
+		<subclass name="HibernateMappingXML.OneTablePerClassInheritanceTest.com.model.QualityControlStatus"
+			discriminator-value="QC_STATUS_RESPONSE" lazy="false" />
+		
+      
+	</class>
+
+</hibernate-mapping>
