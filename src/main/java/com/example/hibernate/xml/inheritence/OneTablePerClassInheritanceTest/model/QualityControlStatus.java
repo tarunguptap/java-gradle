@@ -1,18 +1,8 @@
-/*
- * @(#)QualityControlStatus.java December 21, 2011
- * 
- * Copyright (c)2005 Flipswap, Inc.
- * U.S.A. All Rights Reserved.
- * 
- * This software is the confidential and proprietary information of Flipswap, Inc.
- * ("Confidential Information"). You shall not disclose such
- * Confidential Information and shall use it only in accordance with the terms
- * of the license agreement you entered into with Flipswap, Inc.
- */
+
 package com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.model;
 
 /**
- * @author Achauhan
+ * @author
  * @hibernate.subclass discriminator-value="QC_STATUS_RESPONSE"
  */
 

@@ -75,7 +75,7 @@
 		</property> -->
         <property name="mappingDirectoryLocations">
           <list>
-          <!--  <value>/WEB-INF/classes/com/flipswap/domain</value> -->
+          
             <value>/HibernateMappingXML/OneToManySetTest/com/mapping</value>
           </list>
         </property>

@@ -1,7 +1,7 @@
 package com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model;
 
 /**
- * @author Achauhan
+ * @author 
  * @hibernate.subclass discriminator-value="QC_STATUS_RESPONSE"
  */
 
