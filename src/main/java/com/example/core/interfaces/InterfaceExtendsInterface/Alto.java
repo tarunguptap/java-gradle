@@ -1,4 +1,4 @@
-package com.example.core.inheritance.InterfaceExtendsInterface;
+package com.example.core.interfaces.InterfaceExtendsInterface;
 
 public class Alto implements CarInterface{
 	@Override
