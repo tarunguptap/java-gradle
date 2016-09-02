@@ -59,9 +59,40 @@ public class Java8Features {
         System.out.println("squaresList :: " + squaresList);
 
         /**
-         * Collectors
-         * 
+         * filter
          */
+        Customer customer = getCustomerList().stream() // Convert to steam
+                .filter(x -> "arun3".equals(x.getFirstname())) // we want "arun3" only
+                .findAny() // If 'findAny' then return found
+                .orElse(null); // If not found, return null
+        System.out.println("filtered customer name :: " + customer.getFirstname());
 
+        String name = getCustomerList().stream().filter(x -> "arun3".equals(x.getFirstname()))
+                .map(Customer::getFirstname)                       // convert stream to String
+                .findAny().orElse("");
+        System.out.println("name is :: " + name);
+
+        /**
+         * Custom predicate in filter
+         */
+        Customer result = getCustomerList().stream().filter(x -> {
+            if ("arun2".equals(x.getFirstname()) && 2L == x.getId()) {
+                return true;
+            }
+            return false;
+        }).findAny().orElse(null);
+        System.out.println("result :: " + result.getFirstname());
+
+    }
+
+    private static List<Customer> getCustomerList() {
+        Customer customer1 = new Customer(1L, "arun1");
+        Customer customer2 = new Customer(2L, "arun2");
+        Customer customer3 = new Customer(3L, "arun3");
+        Customer customer4 = new Customer(4L, "arun4");
+        Customer customer5 = new Customer(5L, "arun5");
+        Customer customer6 = new Customer(6L, "arun6");
+        List<Customer> customerList = Arrays.asList(customer1, customer2, customer3, customer4, customer5, customer6);
+        return customerList;
     }
 }
