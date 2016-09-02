@@ -1,4 +1,4 @@
-package com.example.core.inheritance.NestedInterface;
+package com.example.core.interfaces.NestedInterface.InInterface;
 
 public class MainClass {
 	public static void main(String[] args) {
