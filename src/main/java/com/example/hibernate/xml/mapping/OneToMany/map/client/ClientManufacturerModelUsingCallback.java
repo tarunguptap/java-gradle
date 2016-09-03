@@ -32,7 +32,7 @@ public class ClientManufacturerModelUsingCallback {
 			SessionFactory sessFactory=(SessionFactory)context.getBean("sessionFactory");
 			HibernateTemplate hibernateTemplate=new HibernateTemplate(sessFactory);
 	    	List<ManufacturerModel> list = new ArrayList<ManufacturerModel>();
-	    	list = hibernateTemplate.execute(
+	    	list = (List<ManufacturerModel>)hibernateTemplate.execute(
 					new HibernateCallback() {
 						@Override
 						public Object doInHibernate(Session session)
