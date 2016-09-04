@@ -1,4 +1,4 @@
-package com.example.core.interfaces.NestedInterface.InClass;
+package com.example.core.innerclass.NestedInterfaceAndClass.NestedInterface.InClass;
 
 public class MainClass {
 	

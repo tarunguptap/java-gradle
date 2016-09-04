@@ -1,4 +1,4 @@
-package com.example.core.interfaces.NestedInterface.InInterface;
+package com.example.core.innerclass.NestedInterfaceAndClass.NestedInterface.InInterface;
 
 /**
  * An interface i.e. declared within another interface or class is known as nested interface. 

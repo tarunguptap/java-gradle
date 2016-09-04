@@ -1,4 +1,4 @@
-package com.example.core.interfaces.ClassInsideInterface;
+package com.example.core.innerclass.NestedInterfaceAndClass.ClassInsideInterface;
 
 /**
  * We can define a class inside the interface

@@ -1,4 +1,4 @@
-package com.example.core.interfaces.NestedInterface.InInterface;
+package com.example.core.innerclass.NestedInterfaceAndClass.NestedInterface.InInterface;
 
 public class ClassImplChildInterface implements Parent.Child {
 
