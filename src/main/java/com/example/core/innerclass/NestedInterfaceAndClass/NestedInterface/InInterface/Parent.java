@@ -7,7 +7,7 @@ package com.example.core.innerclass.NestedInterfaceAndClass.NestedInterface.InIn
  * 
  * Nested interface must be public if it is declared inside the interface but it can have any access 
  * modifier if declared within the class.
- * Nested interfaces are declared static implicitely.
+ * Nested interfaces are declared static implicitly.
  * 
  */
 
