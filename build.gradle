@@ -21,6 +21,7 @@ dependencies {
 	compile 'commons-collections:commons-collections:3.2'
     compile 'commons-lang:commons-lang:2.4'
     
+    compile 'com.google.guava:guava:17.0'
     
     compile 'org.springframework:spring-beans:' + springVersion
     compile 'org.springframework:spring-context:' + springVersion

@@ -1,6 +1,8 @@
-package com.example.java8feature;
+package com.example.java8feature.dto;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -14,6 +16,8 @@ public class Customer {
     private String mobnum;
     private String offphone;
     private Date createddate;
+    private List<Employee> employees;
+    private Map<String, Employee> employeesMap;
 
     public Customer() {
 
@@ -90,6 +94,22 @@ public class Customer {
 
     public void setOffphone(String offphone) {
         this.offphone = offphone;
+    }
+    
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public Map<String, Employee> getEmployeesMap() {
+        return employeesMap;
+    }
+
+    public void setEmployeesMap(Map<String, Employee> employeesMap) {
+        this.employeesMap = employeesMap;
     }
 
     @Override

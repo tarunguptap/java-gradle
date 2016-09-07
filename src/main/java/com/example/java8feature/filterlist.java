@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.java8feature.dto.Customer;
+
 public class filterlist {
 
     public List<Long> getIdListFromObjectList() {
