@@ -21,12 +21,13 @@ public class FilterAnyMatch {
             
           //With java8 or earlier
           // Match on List
-            isAdminEmployee = customer.getEmployees().stream().anyMatch(employee -> StringUtils.equals(employee.getType(), "ADMIN"));
-            System.out.println("Java 8 "+isAdminEmployee);
+         isAdminEmployee = customer.getEmployees().stream().anyMatch(employee -> StringUtils.equals(employee.getType(), "ADMIN"));
+         System.out.println("Java 8 "+isAdminEmployee);
         
          // Match on Map
          boolean isFinanceEmployee =  InitializerHelper.getEmployeeMap().values().stream().anyMatch(employee -> StringUtils.equals(employee.getType(), "FINANCE"));
          System.out.println("Java 8 "+isFinanceEmployee);
-            
+                
+         
     }
 }
