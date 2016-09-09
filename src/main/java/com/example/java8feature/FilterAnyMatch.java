@@ -27,6 +27,10 @@ public class FilterAnyMatch {
          // Match on Map
          boolean isFinanceEmployee =  InitializerHelper.getEmployeeMap().values().stream().anyMatch(employee -> StringUtils.equals(employee.getType(), "FINANCE"));
          System.out.println("Java 8 "+isFinanceEmployee);
+         
+         
+         /*isvalid = updateTradeDTO.getItems().stream().anyMatch(tradeDTO -> BooleanUtils.isNotTrue(tradeDTO.getRemovePromotion())
+                 && Objects.isNull(tradeDTO.getNewImeiESNSerialNumber()));*/
                 
          
     }
