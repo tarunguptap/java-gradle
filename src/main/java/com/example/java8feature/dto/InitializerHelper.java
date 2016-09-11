@@ -33,7 +33,8 @@ public class InitializerHelper {
         Employee employee2 = new Employee(1L, "emp2", "FINANCE");
         Employee employee3 = new Employee(1L, "emp3", "SECURITY");
         Employee employee4 = new Employee(1L, "emp4", "DEV");
-        return Arrays.asList(employee1, employee2, employee3, employee4);
+        Employee employee5 = new Employee(1L, "emp5", "ANONYMOUS", false);
+        return Arrays.asList(employee1, employee2, employee3, employee4, employee5);
     }
     
     public static Map<String, Employee> getEmployeeMap() {

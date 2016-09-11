@@ -8,6 +8,7 @@ public class Employee {
     private Long id;
     private String name;
     private String type;
+    private Boolean isValidEmployee = Boolean.TRUE;
 
     public Employee() {
 
@@ -19,9 +20,23 @@ public class Employee {
         this.type=type;
     }
 
+    public Employee(Long id, String name, String type, Boolean isValidEmployee) {
+        this.id = id;
+        this.name = name;
+        this.type=type;
+        this.isValidEmployee = isValidEmployee;   
+    }
 
 
-    public Long getId() {
+    public Boolean getIsValidEmployee() {
+		return isValidEmployee;
+	}
+
+	public void setIsValidEmployee(Boolean isValidEmployee) {
+		this.isValidEmployee = isValidEmployee;
+	}
+
+	public Long getId() {
         return id;
     }
 

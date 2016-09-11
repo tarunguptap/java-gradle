@@ -1,5 +1,8 @@
 package com.example.java8feature;
 
+import java.util.Objects;
+
+import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 
 import com.example.java8feature.dto.Customer;
@@ -28,10 +31,15 @@ public class FilterAnyMatch {
          boolean isFinanceEmployee =  InitializerHelper.getEmployeeMap().values().stream().anyMatch(employee -> StringUtils.equals(employee.getType(), "FINANCE"));
          System.out.println("Java 8 "+isFinanceEmployee);
          
+         //Any match
+         Boolean isValidEmployeeAnyMatch = customer.getEmployees().stream().anyMatch(employee -> BooleanUtils.isNotTrue(employee.getIsValidEmployee()) &&
+        		 Objects.nonNull(employee.getId()));
+         System.out.println("any match + isValidEmployeeAnyMatch "+isValidEmployeeAnyMatch);
          
-         /*isvalid = updateTradeDTO.getItems().stream().anyMatch(tradeDTO -> BooleanUtils.isNotTrue(tradeDTO.getRemovePromotion())
-                 && Objects.isNull(tradeDTO.getNewImeiESNSerialNumber()));*/
-                
+         //All match
+         Boolean isValidEmployeeAllMatch = customer.getEmployees().stream().allMatch(employee -> BooleanUtils.isNotTrue(employee.getIsValidEmployee()) &&
+        		 Objects.nonNull(employee.getId()));
+         System.out.println("any match + isValidEmployeeAllMatch "+isValidEmployeeAllMatch);
          
     }
 }
