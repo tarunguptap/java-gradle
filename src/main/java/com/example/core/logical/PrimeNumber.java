@@ -1,4 +1,4 @@
-package com.example.core.logical.prime;
+package com.example.core.logical;
 
 /**
  * Prime Number : A number that can't be divided evenly by numbers other than 1 or itself. 
