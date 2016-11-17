@@ -9,8 +9,8 @@ public class ExceptionDemo {
 	
 	public static void main(String[] args) {
 		ExceptionDemo exDemo = new ExceptionDemo();
-		// Case : if we don't catch or throw exception - Compile Error 
-		exDemo.method();
+		// un comment below -Case : if we don't catch or throw exception - Compile Error 
+//		exDemo.method();
 		
 		// Case : if we catch or throw exception
 		try {

@@ -13,17 +13,17 @@ public class Parent {
 }
 
 class Child extends Parent{  
-	  void msg()throws IOException{  
+	  /*void msg()throws IOException{  
 	    System.out.println("TestExceptionChild");  
-	  }
+	  }*/
 	  
-	  void display()throws Exception{  
+	  /*void display()throws Exception{  
 	    System.out.println("TestExceptionChild");  
-	  }
+	  }*/
 	  
 	  public static void main(String args[]){  
 	   Parent p=new Child();  
 	   p.msg();  
 	  }  
 	}
-// Output:Compile Time Error
+// uncomment above, Output:Compile Time Error

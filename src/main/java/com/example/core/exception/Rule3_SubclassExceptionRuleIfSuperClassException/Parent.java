@@ -36,9 +36,10 @@ class Child extends Parent{
 	    System.out.println("TestExceptionChild");  
 	  }
 	  
-	  void read() throws Exception {  
+	  //uncomment below
+	  /*void read() throws Exception {  
 	    System.out.println("TestExceptionChild");  
-	  }
+	  }*/
 	  
 	  public static void main(String args[]){  
 	   Parent p=new Child();  
