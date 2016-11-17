@@ -1,4 +1,4 @@
-package com.example.datetime;
+package com.example.core.date;
 
 import java.util.Calendar;
 import java.util.Date;
