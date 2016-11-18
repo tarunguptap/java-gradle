@@ -17,16 +17,18 @@ public class Client {
         for (Identity identity : employee2.getIdentities()) {
             System.out.println(identity.getCode());
         }
+        Identity identity1 = employee2.getIdentities().first();
+        System.out.println(identity1.getCode());
 
         // This method gives the Exception :
         /**
          * Exception in thread "main" java.lang.ClassCastException: com.example.core.comparable.employeeidentity cannot
          * be cast to java.lang.Comparable
          */
-        Employee employee1 = getEmployeeByIdentity(Identity.Code.TEST_CODE);
+        /*Employee employee1 = getEmployeeByIdentity(Identity.Code.TEST_CODE);
         for (Identity identity : employee1.getIdentities()) {
             System.out.println(identity.getCode());
-        }
+        }*/
 
 
 
