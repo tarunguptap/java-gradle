@@ -11,6 +11,7 @@ import org.apache.commons.collections.Predicate;
 import com.example.java8feature.dto.filter.ActionBean.Action;
 
 public class CollectionUtilListFilter {
+
     public static void main(String[] args) {
 
         List<Action> filterActionList = Arrays.asList(Action.SHRINK_RECEIPT, Action.TEST);
