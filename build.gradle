@@ -1,6 +1,7 @@
 ext {
 	javaVersion = 1.8
-	springVersion = '3.2.16.RELEASE'	
+	springVersion = '4.2.3.RELEASE'	
+	springSecurityVersion = '4.0.3.RELEASE'
 }
 
 apply plugin: 'java'
@@ -29,6 +30,8 @@ dependencies {
     compile 'org.springframework:spring-beans:' + springVersion
     compile 'org.springframework:spring-context:' + springVersion
     compile 'org.springframework:spring-orm:' + springVersion
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
     
     compile 'org.springframework.security:spring-security-core:3.0.5.RELEASE', {
     	exclude module: 'aspectjweaver'

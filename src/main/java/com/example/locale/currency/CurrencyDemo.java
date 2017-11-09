@@ -1,4 +1,4 @@
-package com.example.locale;
+package com.example.locale.currency;
 
 import java.text.NumberFormat;
 import java.util.Currency;
