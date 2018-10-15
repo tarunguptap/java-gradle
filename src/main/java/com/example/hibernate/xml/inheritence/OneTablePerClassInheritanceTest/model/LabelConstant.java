@@ -3,10 +3,7 @@ package com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.mo
 
 import com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.model.PersistentEntity;
 
-/**
- * @author 
- * @version $Id$
- */
+
 public class LabelConstant extends PersistentEntity {
 
     

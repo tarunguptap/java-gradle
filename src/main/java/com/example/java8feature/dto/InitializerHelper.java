@@ -17,6 +17,11 @@ public class InitializerHelper {
         return Arrays.asList(customer1, customer2, customer3, customer4, customer5, customer6);
     }
 
+    public static Customer getCustomerWithEmployeeList() {
+        return new Customer(1L, "arun1", Arrays.asList(new Employee(1L, "emp1", "ADMIN"), new Employee(11L, "emp11",
+                "ADMIN11")));
+    }
+
     public static Map<Long, Customer> getCustomerMap() {
         return InitializerHelper.getCustomerList().stream()
                 .collect(Collectors.toMap(x -> x.getId(), Function.identity()));

@@ -11,7 +11,7 @@ import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.model.LabelConstant;
-import com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.model.QualityControlStatus;
+import com.example.hibernate.xml.inheritence.OneTablePerClassInheritanceTest.model.QualityCheckStatus;
 
 public class FetchLabelConstant {
 
@@ -20,7 +20,7 @@ public class FetchLabelConstant {
 		try
 		{
 			FetchLabelConstant fetchLabelConstant = new FetchLabelConstant();
-			QualityControlStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_BATTERY_MISSING", QualityControlStatus.class);
+			QualityCheckStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_BATTERY_CHARGE", QualityCheckStatus.class);
 			System.out.println(status.getCode());
 			System.out.println(status.getText());
 		}

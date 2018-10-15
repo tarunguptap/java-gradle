@@ -10,15 +10,15 @@ public class QCHistory extends PersistentEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Item item;
+	private Device item;
 	private Date qcDate;
 	private String userName;
-	private QualityControlStatus qcStatus;
+	private QualityCheckStatus qcStatus;
 	
-	public QualityControlStatus getQcStatus() {
+	public QualityCheckStatus getQcStatus() {
 		return qcStatus;
 	}
-	public void setQcStatus(QualityControlStatus qcStatus) {
+	public void setQcStatus(QualityCheckStatus qcStatus) {
 		this.qcStatus = qcStatus;
 	}
 	public String getUserName() {
@@ -30,7 +30,7 @@ public class QCHistory extends PersistentEntity {
 	public QCHistory(){
 		
 	}
-	public QCHistory(QualityControlStatus qcStatus,String userName){
+	public QCHistory(QualityCheckStatus qcStatus,String userName){
 			this.qcStatus = qcStatus;
 			this.userName = userName;
 			this.qcDate = new Date();
@@ -39,14 +39,14 @@ public class QCHistory extends PersistentEntity {
 	/**
 	 * @return the item
 	 */
-	public Item getItem() {
+	public Device getItem() {
 		return item;
 	}
 
 	/**
 	 * @param item the item to set
 	 */
-	public void setItem(Item item) {
+	public void setItem(Device item) {
 		this.item = item;
 	}
 

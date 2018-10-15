@@ -10,7 +10,6 @@ import java.util.Set;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-
 public class Customer {
     private Long id;
     private String userId;
@@ -33,8 +32,14 @@ public class Customer {
         this.firstname = firstname;
     }
 
-    public Customer(Long id, String userId, String firstname, String lastname, Date createddate,
-            String mobnum, String offphone) {
+    public Customer(Long id, String firstname, List<Employee> employees) {
+        this.id = id;
+        this.firstname = firstname;
+        this.employees = employees;
+    }
+
+    public Customer(Long id, String userId, String firstname, String lastname, Date createddate, String mobnum,
+            String offphone) {
         this.offphone = offphone;
         this.mobnum = mobnum;
         this.id = id;
@@ -54,7 +59,7 @@ public class Customer {
         this.createddate = createddate;
         this.contactDetails = contactDetails;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -110,7 +115,7 @@ public class Customer {
     public void setOffphone(String offphone) {
         this.offphone = offphone;
     }
-    
+
     public List<Employee> getEmployees() {
         return employees;
     }
@@ -143,7 +148,6 @@ public class Customer {
         this.address = address;
     }
 
-    
     public static List<Customer> getCustomerList() {
         ContactDetail contactDeatil1 = new ContactDetail(1L, "1", "123", "OFFICE");
         ContactDetail contactDeatil6 = new ContactDetail(6L, "6", "123", "HOME");
@@ -178,7 +182,7 @@ public class Customer {
     public static Set<Customer> getCustomerSet() {
         return new HashSet<>(getCustomerList());
     }
-    
+
     @Override
     public String toString() {
         return new StringBuffer().append(" Id : " + id).append(" | userId : " + userId)
@@ -201,6 +205,5 @@ public class Customer {
     public int hashCode() {
         return new HashCodeBuilder().append(this.userId).toHashCode();
     }
-    
-    
+
 }

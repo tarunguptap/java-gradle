@@ -21,6 +21,9 @@ public class Java8Features {
         long count = strings.stream().filter(string -> string.isEmpty()).count();
         System.out.println("stream empty string count :: " + count);
 
+        // For above string -> string.isEmpty() sonar lint is asking to convert lambda in method reference, below is the
+        // fix
+        strings.stream().filter(String::isEmpty).count();
         /**
          * Stream
          * parallelStream : Returns a parallel Stream considering collection as its source.

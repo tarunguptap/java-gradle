@@ -5,6 +5,7 @@ public class ContactDetail {
     private String custId;
     private String mobnum;
     private String contacttype;
+    private Address address;
 
     public ContactDetail(Long id, String custId, String mobnum, String contacttype) {
         this.id = id;
@@ -43,6 +44,21 @@ public class ContactDetail {
 
     public void setContacttype(String contacttype) {
         this.contacttype = contacttype;
+    }
+
+    /**
+     * @return the address
+     */
+    public Address getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address
+     *            the address to set
+     */
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

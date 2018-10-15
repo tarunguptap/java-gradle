@@ -19,7 +19,7 @@ import javax.persistence.Version;
     name="type",
     discriminatorType=DiscriminatorType.STRING
 )
-@DiscriminatorValue(value="QC_STATUS_RESPONSE")
+@DiscriminatorValue(value="LABEL_CONSTANT")
 public class LabelConstant {
 
     

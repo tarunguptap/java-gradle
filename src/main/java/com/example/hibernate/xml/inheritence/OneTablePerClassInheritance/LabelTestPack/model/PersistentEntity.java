@@ -13,27 +13,14 @@ public abstract class PersistentEntity implements Serializable {
 
 	private Integer version;
 
-	/**
-	 * @return Returns the version.
-	 * @hibernate.version column="VERSION" unsaved-value="null"
-	 * 
-	 */
 	public Integer getVersion() {
 		return this.version;
 	}
 
-	/**
-	 * @param version
-	 *            The version to set.
-	 */
 	void setVersion(Integer versionID) {
 		this.version = versionID;
 	}
 
-	/**
-	 * @param id
-	 *            The id to set.
-	 */
 	public void setId(Long id) {
 		this.id = id;
 	}

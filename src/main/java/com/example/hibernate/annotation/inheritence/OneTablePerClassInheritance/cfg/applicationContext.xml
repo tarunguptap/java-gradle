@@ -28,7 +28,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.LabelConstant</value>
-				<value>com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityControlStatus</value>
+				<value>com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityCheckStatus</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

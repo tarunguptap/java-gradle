@@ -13,9 +13,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.example.hibernate.xml.mapping.OneToMany.map.model.ManufacturerModel;
-import com.example.hibernate.xml.mapping.OneToMany.map.model.ModelAttribute;
-import com.example.hibernate.xml.mapping.OneToMany.map.enums.ModelAttributeType;
+import com.example.hibernate.xml.mapping.OneToMany.map.model.ManufacturerDevice;
+import com.example.hibernate.xml.mapping.OneToMany.map.model.DeviceAttribute;
+import com.example.hibernate.xml.mapping.OneToMany.map.enums.DeviceAttributeType;
 
 public class ClientHibernateLeftJoins {
 	public static void main(String[] args) {
@@ -23,27 +23,27 @@ public class ClientHibernateLeftJoins {
 		SessionFactory sessFactory=(SessionFactory)context.getBean("sessionFactory");
 		HibernateTemplate hibernateTemplate=new HibernateTemplate(sessFactory);
 		
-		String carrierName = "att";
-		DetachedCriteria dc = DetachedCriteria.forClass(ManufacturerModel.class);
+		String carrierName = "testCarrier";
+		DetachedCriteria dc = DetachedCriteria.forClass(ManufacturerDevice.class);
 		//dc.createAlias("modelAttributes", "model", Criteria.LEFT_JOIN);
-    dc.add(Restrictions.ilike("model.name",ModelAttributeType.CARRIER));
+    dc.add(Restrictions.ilike("model.name",DeviceAttributeType.CARRIER));
     dc.add(Restrictions.ilike("model.value", carrierName));
     
-    List list = new ArrayList<ManufacturerModel>();
+    List list = new ArrayList<ManufacturerDevice>();
 		list =hibernateTemplate.findByCriteria(dc);
 		
 		System.out.println(list.size());
-		Iterator<ManufacturerModel> itr = list.iterator();
+		Iterator<ManufacturerDevice> itr = list.iterator();
 		while(itr.hasNext()){
-			ManufacturerModel manufacturerModel = itr.next();
-			System.out.println(manufacturerModel.getId());
-			System.out.println(manufacturerModel.getDescription());
-			System.out.println(manufacturerModel.getDestination());
-			System.out.println(manufacturerModel.getModelNumber());
-			System.out.println(manufacturerModel.getModelAttributes());
-			Map<ModelAttributeType,ModelAttribute> model = manufacturerModel.getModelAttributes();
+			ManufacturerDevice manufacturerDevice = itr.next();
+			System.out.println(manufacturerDevice.getId());
+			System.out.println(manufacturerDevice.getDescription());
+			System.out.println(manufacturerDevice.getDestination());
+			System.out.println(manufacturerDevice.getDeviceNumber());
+			System.out.println(manufacturerDevice.getDeviceAttributes());
+			Map<DeviceAttributeType,DeviceAttribute> model = manufacturerDevice.getDeviceAttributes();
 			System.out.println("total attributes correponding to this model are "+model.size());
-			String camera  =manufacturerModel.getModelAttributeValue(ModelAttributeType.CAMERA);
+			String camera  =manufacturerDevice.getModelAttributeValue(DeviceAttributeType.CAMERA);
 			System.out.println("camera is "+camera);
 		}
 		

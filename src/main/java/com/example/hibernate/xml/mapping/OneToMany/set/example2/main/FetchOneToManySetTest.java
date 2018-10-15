@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Item;
+import com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Device;
 
 public class FetchOneToManySetTest {
 
@@ -20,10 +20,10 @@ public class FetchOneToManySetTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("HibernateMappingXML/OneToManySetTest/com11/cfg/applicationContext.xml");
 		SessionFactory sessFactory=(SessionFactory)context.getBean("sessionFactory");
 		HibernateTemplate hibernateTemplate=new HibernateTemplate(sessFactory);
-		List<Item> itemList = getItemList(hibernateTemplate);
-		System.out.println(itemList);
+		List<Device> deviceList = getDeviceList(hibernateTemplate);
+		System.out.println(deviceList);
 	}
-	public static List getItemList(HibernateTemplate hibernateTemplate){
-		return hibernateTemplate.find("from Item");
+	public static List getDeviceList(HibernateTemplate hibernateTemplate){
+		return hibernateTemplate.find("from Device");
 	}
 }

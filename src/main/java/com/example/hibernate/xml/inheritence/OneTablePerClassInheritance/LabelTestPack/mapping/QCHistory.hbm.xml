@@ -19,9 +19,9 @@
 		
 		<property name="userName" type="java.lang.String" column="username" />	
 		
-         <many-to-one name="item" class="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.Item"
-			cascade="none" update="true" insert="true" index="ix_item_itemid"
-			foreign-key="fk_item_itemid" column="itemid" not-null="true" />
+         <many-to-one name="device" class="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.Device"
+			cascade="none" update="true" insert="true" index="ix_device_deviceid"
+			foreign-key="fk_device_deviceid" column="deviceid" not-null="true" />
 			
 		 <many-to-one name="qcStatus"
             class="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.QualityControlStatus" cascade="none"

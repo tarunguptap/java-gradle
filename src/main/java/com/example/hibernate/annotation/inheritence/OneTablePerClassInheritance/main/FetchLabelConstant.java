@@ -11,7 +11,7 @@ import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.LabelConstant;
-import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityControlStatus;
+import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityCheckStatus;
 
 
 public class FetchLabelConstant {
@@ -23,7 +23,7 @@ public class FetchLabelConstant {
 		try
 		{
 			FetchLabelConstant fetchLabelConstant = new FetchLabelConstant();
-			QualityControlStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_LCD_WORK", QualityControlStatus.class);
+			QualityCheckStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_REMOTE_WORK", QualityCheckStatus.class);
 			System.out.println(status.getCode());
 			System.out.println(status.getText());
 		}

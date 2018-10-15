@@ -10,7 +10,7 @@
  -->
 <hibernate-mapping>
 	<class name="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.LabelConstant" table="ref_labelconstant" 
-	discriminator-value="QC_STATUS_RESPONSE"
+	discriminator-value="LABEL_CONSTANT"
 
 		dynamic-insert="true" dynamic-update="true" lazy="false">
 
@@ -46,10 +46,10 @@
 			insert="true" column="nonlocalizedtext" not-null="false" unique="false"/>	
 		
 		<subclass name="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.QualityControlStatus"
-			discriminator-value="QC_STATUS_RESPONSE" lazy="false" />
+			discriminator-value="QC_STATUS" lazy="false" />
 		
-		<subclass name="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.DatawipeStatus"
-			discriminator-value="DATAWIPE_STATUS_RESPONSE" lazy="false">
+		<subclass name="HibernateMappingXML.OneTablePerClassInheritance.LabelTestPack.model.WipeoutStatus"
+			discriminator-value="WIPEOUT_STATUS" lazy="false">
 			<property name="defaultLabel" type="java.lang.Boolean" column="defaultlabel" />  
 		</subclass>
       

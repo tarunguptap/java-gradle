@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Item;
+import com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Device;
 import com.example.hibernate.xml.mapping.OneToMany.set.example2.model.QCHistory;
 
 public class OneToManySetTest {
@@ -25,18 +25,18 @@ public class OneToManySetTest {
 			
 			QCHistory qcHistoryLog = new QCHistory("tarun");
 			
-			Item item = new Item();
-			item.addQCHistoryLog(qcHistoryLog);
+			Device device = new Device();
+			device.addQCHistoryLog(qcHistoryLog);
 			
 			Set<QCHistory> qcHistoryLogSet = new HashSet<QCHistory>();
 			qcHistoryLogSet.add(new QCHistory("himanshu"));
 			qcHistoryLogSet.add(new QCHistory("rohit"));
 			qcHistoryLogSet.add(new QCHistory("gopal"));
 			qcHistoryLogSet.add(new QCHistory("arun"));
-			item.addQCHistoryLog(qcHistoryLogSet);
+			device.addQCHistoryLog(qcHistoryLogSet);
 			
 			
-			hibernateTemplate.saveOrUpdate(item);
+			hibernateTemplate.saveOrUpdate(device);
 		}
 		catch(HibernateException e)
 		{

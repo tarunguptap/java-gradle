@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.LabelConstant;
-import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityControlStatus;
+import com.example.hibernate.annotation.inheritence.OneTablePerClassInheritance.model.QualityCheckStatus;
 
 
 public class InsertLabelConstant {
@@ -28,7 +28,7 @@ public class InsertLabelConstant {
 			LabelConstant labelConstant = new LabelConstant("FAIL_LCD_WORK","Fail LCD work","Fail LCD work");
 			hibernateTemplate.save(labelConstant);
 			
-			QualityControlStatus qcs = new QualityControlStatus("FAIL_CARRIER","Fail Carrier","Fail Carrier");
+			QualityCheckStatus qcs = new QualityCheckStatus("FAIL_CARRIER","Fail Carrier","Fail Carrier");
 			hibernateTemplate.save(qcs);
 		}
 		catch(HibernateException e)

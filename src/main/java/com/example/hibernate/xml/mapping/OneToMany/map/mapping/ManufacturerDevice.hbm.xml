@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<typedef name="modelAttributeType"
+		class="commonutil.userType.EnumUserType">
+		<param name="enumClassName">
+			HibernateMappingXML.OneToManyMapTest.com.enums.DeviceAttributeType
+		</param>
+	</typedef>
+	<class name="HibernateMappingXML.OneToManyMapTest.com.model.ManufacturerDevice" dynamic-insert="true" 
+      dynamic-update="true" table="ref_manufacturerdevice">
+		<id name="id" column="manufacturermodelid" type="long" unsaved-value="-1">
+          <generator class="hilo"/></id>
+		<version name="version" column="version" type="java.lang.Integer" unsaved-value="null" />
+	 	<property name="description" type="java.lang.String" column="description" insert="true" update="true"/>
+		<property name="deviceNumber" type="java.lang.String" update="true" insert="true" column="devicenumber" not-null="true" />
+		<property name="active" type="java.lang.Boolean" not-null="true" update="true" insert="true" column="active" />
+		<map name="deviceAttributes" lazy="true" inverse="true" cascade="all, delete-orphan" >
+			<key column="manufacturerdeviceid" not-null="true" update="true"/>
+			<map-key column="attributename" type="deviceAttributeType"/>
+			<one-to-many class="HibernateMappingXML.OneToManyMapTest.com.model.deviceAttribute" />
+		</map>
+		<map name="deviceAttributeTest" lazy="true" inverse="true" cascade="all, delete-orphan" >
+			<key column="manufacturerdeviceid" not-null="true" update="true"/>
+			<map-key column="attributename" type="modelAttributeType"/>
+			<element column="attributevalue" type="java.lang.String"/>
+		</map> 
+		<property name="recycle" type="java.lang.Boolean" column="recycle" />
+		<property name="destination" type="java.lang.String" column="destination" />		
+	</class>	
+	<class name="HibernateMappingXML.OneToManyMapTest.com.model.DeviceAttribute" dynamic-insert="true" dynamic-update="true"
+		
+		table="ref_deviceattribute">
+		<id name="id" column="deviceattributeid" type="long"
+			unsaved-value="-1">
+			<generator class="hilo">
+                <param name="property">manufacturerDevice</param>
+            </generator>
+		</id>
+		<version name="version" column="version"
+			type="java.lang.Integer" unsaved-value="null" />
+		
+		<property name="deviceAttributeType" update="true" insert="true"
+			column="deviceattributetype">
+			<type name="commonutil.userType.EnumUserType">
+				<param name="enumClassName">
+					HibernateMappingXML.OneToManyMapTest.com.enums.DeviceAttributeType
+				</param>
+			</type>
+		</property>
+			
+		<property name="value"
+			type="java.lang.String" column="attributevalue" />
+		<many-to-one name="manufacturerDevice" class="HibernateMappingXML.OneToManyMapTest.com.model.ManufacturerDevice" column="manufacturerdeviceid" /> 
+			
+	</class>
+</hibernate-mapping>

@@ -10,9 +10,9 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model.DatawipeStatus;
+import com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model.WipeoutStatus;
 import com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model.LabelConstant;
-import com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model.QualityControlStatus;
+import com.example.hibernate.xml.inheritence.OneTablePerClassInheritance.LabelTestPack.model.QualityCheckStatus;
 
 public class FetchLabelConstant {
 
@@ -26,18 +26,18 @@ public class FetchLabelConstant {
 			SessionFactory sessFactory=(SessionFactory)context.getBean("sessionFactory");
 			HibernateTemplate hibernateTemplate=new HibernateTemplate(sessFactory);
 			FetchLabelConstant fetchLabelConstant = new FetchLabelConstant();
-			QualityControlStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_BATTERY_MISSING", QualityControlStatus.class);
+			QualityCheckStatus status = fetchLabelConstant.findCodeTextByCode("FAIL_BATTERY_CHARGE", QualityCheckStatus.class);
 			System.out.println(status.getCode());
 			System.out.println(status.getText());
 			System.out.println(status.getDiscriminatorValue());
 			
 			System.out.println("\n===============================\n");
 			
-			DatawipeStatus datawipeStatus = fetchLabelConstant.findCodeTextByCode("FAIL_CARRIER", DatawipeStatus.class);
-			System.out.println(datawipeStatus.getCode());
-			System.out.println(datawipeStatus.getText());
-			System.out.println(datawipeStatus.getDiscriminatorValue());
-			System.out.println(datawipeStatus.getDefaultLabel());
+			WipeoutStatus WipeoutStatus = fetchLabelConstant.findCodeTextByCode("FAIL_CARRIER", WipeoutStatus.class);
+			System.out.println(WipeoutStatus.getCode());
+			System.out.println(WipeoutStatus.getText());
+			System.out.println(WipeoutStatus.getDiscriminatorValue());
+			System.out.println(WipeoutStatus.getDefaultLabel());
 		}
 		catch(HibernateException e)
 		{

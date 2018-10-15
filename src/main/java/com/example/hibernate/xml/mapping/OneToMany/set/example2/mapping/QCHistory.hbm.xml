@@ -5,10 +5,10 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.QCHistory" table="fs_item_qchistory"
+	<class name="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.QCHistory" table="log_device_qchistory"
 		dynamic-update="true" dynamic-insert="true">
 		
-		<id name="id" column="itemqchistoryid" type="long" 
+		<id name="id" column="deviceqchistoryid" type="long" 
 		unsaved-value="-1">
 			<generator class="native" />
 		</id>
@@ -19,9 +19,9 @@
 		
 		<property name="userName" type="java.lang.String" column="username" />	
 		
-         <many-to-one name="item" class="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Item"
+         <many-to-one name="device" class="com.example.hibernate.xml.mapping.OneToMany.set.example2.model.Device"
 			cascade="none" update="true" insert="true" index="ix_item_itemid"
-			foreign-key="fk_item_itemid" column="itemid" not-null="true" />
+			foreign-key="fk_device_deviceid" column="deviceid" not-null="true" />
 	</class>
 
 </hibernate-mapping>
