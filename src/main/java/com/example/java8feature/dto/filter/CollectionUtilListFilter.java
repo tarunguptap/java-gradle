@@ -13,7 +13,11 @@ import com.example.java8feature.dto.filter.ActionBean.Action;
 public class CollectionUtilListFilter {
 
     public static void main(String[] args) {
+        // filterCase1();
+        filterCase2();
+    }
 
+    public static void filterCase1() {
         List<Action> filterActionList = Arrays.asList(Action.SHRINK_RECEIPT, Action.TEST);
 
         List<ActionBean> availableActions = new ArrayList<>();
@@ -53,5 +57,16 @@ public class CollectionUtilListFilter {
                 return true;
             }
         });
+    }
+
+    public static void filterCase2() {
+        List<Long> lst = new ArrayList<Long>();
+        lst.add(1L);
+        lst.add(2L);
+        /*
+         * CollectionUtils.filter(lst, obj -> { if (obj.equals(1L)) { return false; } return true; });
+         */
+        lst.removeIf(obj -> obj.equals(1L));
+        System.out.println(lst);
     }
 }

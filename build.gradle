@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
 	compile 'com.itextpdf:itextpdf:5.5.10'
+	compile 'org.bouncycastle:bcprov-jdk15on:1.47'
 
 	compile 'org.apache.pdfbox:pdfbox:2.0.6'
 
@@ -68,6 +69,8 @@ dependencies {
 	testCompile 'com.github.springtestdbunit:spring-test-dbunit:1.2.1'
     testCompile 'org.dbunit:dbunit:2.4.9'
 	testCompile 'commons-dbcp:commons-dbcp:1.4'
+	
+	compile "com.github.tomakehurst:wiremock:2.1.6"
 }
 
 task runApp(type:JavaExec) {

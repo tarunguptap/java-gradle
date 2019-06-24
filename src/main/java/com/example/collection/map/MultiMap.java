@@ -1,5 +1,8 @@
 package com.example.collection.map;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
@@ -15,7 +18,7 @@ public class MultiMap {
         multiMap.put(1L, "arun");
         multiMap.put(1L, "varun");
         multiMap.put(1L, "varun");
-        System.out.println(multiMap);
+        System.out.println("multiMap @@@ " + multiMap);
 
         // apache commons implemenatation
         MultiValueMap<Long, String> multiValueMap = new LinkedMultiValueMap<Long, String>();
@@ -23,7 +26,16 @@ public class MultiMap {
         multiValueMap.add(1L, "arun");
         multiValueMap.add(1L, "varun");
         multiValueMap.add(1L, "varun");
-        System.out.println(multiValueMap);
+        multiValueMap.add(2L, "ajay");
+        System.out.println("multiValueMap @@@ " + multiValueMap);
+
+        Map<Long, String> map = org.apache.commons.collections.map.MultiValueMap
+                .decorate(new LinkedHashMap<Long, String>());
+        map.put(1L, "tarun");
+        map.put(1L, "arun");
+        map.put(1L, "varun");
+        map.put(1L, "varun");
+        System.out.println("map @@@ " + multiValueMap);
 
     }
 }

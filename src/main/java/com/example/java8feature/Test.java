@@ -1,6 +1,7 @@
 package com.example.java8feature;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,10 +37,19 @@ public class Test {
 
     private static Optional<String> getStringOptional() {
         List<String> stringList = new ArrayList<String>();
-        System.out.println(CollectionUtils.isEmpty(stringList));
+        System.out.println("@@@@@@@@@@@@@@ is collection empty @@@@@@@@@@@@" + CollectionUtils.isEmpty(stringList));
+        System.out.println("@@@@@@ 1111 " + stringList.stream().findFirst().orElse(null));
+
+        System.out.println("@@@@@@ 1.1 " + stringList.stream().findFirst());
+
+        List<String> stringList1 = Arrays.asList("1", "2");
+        System.out.println("@@@@@@ 2222 " + stringList1.stream().findFirst().orElse(null));
+        System.out.println("@@@@@@ 2222.1 " + stringList1.stream().findFirst().get());
+
         if (CollectionUtils.isNotEmpty(stringList)) {
             return Optional.ofNullable(stringList.get(0));
         }
         return Optional.empty();
     }
+
 }
