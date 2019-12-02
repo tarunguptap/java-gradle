@@ -1,4 +1,4 @@
-package com.example.java8feature;
+package com.example.java8feature.innercollection;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,21 +21,56 @@ public class SetOfSetToFlatSetUsingFlatMap {
 
     }
 
+    public Set<AddressResponse> getAddressResponse() {
+        Set<AddressResponse> addressResponseSet = new HashSet<>();
+        addressResponseSet.add(new AddressResponse(1, new AddressDTO(3, "WORK")));
+        addressResponseSet.add(new AddressResponse(2, new AddressDTO(12, "OFFICE2")));
+        return addressResponseSet;
+    }
+
     public Set<CustomerDTO> getCustomerDTO() {
         CustomerDTO customerDTO = new CustomerDTO(1);
         customerDTO.addAddress(new AddressDTO(1, "HOME"));
         customerDTO.addAddress(new AddressDTO(2, "OFFICE"));
         customerDTO.addAddress(new AddressDTO(3, "WORK"));
         CustomerDTO customerDTO2 = new CustomerDTO(2);
-        customerDTO2.addAddress(new AddressDTO(1, "HOME2"));
-        customerDTO2.addAddress(new AddressDTO(2, "OFFICE2"));
-        customerDTO2.addAddress(new AddressDTO(3, "WORK2"));
+        customerDTO2.addAddress(new AddressDTO(11, "HOME2"));
+        customerDTO2.addAddress(new AddressDTO(12, "OFFICE2"));
+        customerDTO2.addAddress(new AddressDTO(13, "WORK2"));
         CustomerDTO customerDTO3 = new CustomerDTO(3);
         Set<CustomerDTO> customerDTOSet = new HashSet<>();
         customerDTOSet.add(customerDTO);
         customerDTOSet.add(customerDTO2);
         customerDTOSet.add(customerDTO3);
+        customerDTOSet.add(new CustomerDTO(4));
         return customerDTOSet;
+    }
+
+    public class AddressResponse {
+        private int addresponseId;
+        private AddressDTO addressDTO;
+
+        public AddressResponse(int addresponseId, AddressDTO addressDTO) {
+            this.addresponseId = addresponseId;
+            this.addressDTO = addressDTO;
+        }
+
+        public int getAddresponseId() {
+            return addresponseId;
+        }
+
+        public void setAddresponseId(int addresponseId) {
+            this.addresponseId = addresponseId;
+        }
+
+        public AddressDTO getAddressDTO() {
+            return addressDTO;
+        }
+
+        public void setAddressDTO(AddressDTO addressDTO) {
+            this.addressDTO = addressDTO;
+        }
+
     }
 
     public class CustomerDTO {
