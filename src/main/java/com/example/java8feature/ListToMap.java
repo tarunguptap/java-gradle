@@ -11,10 +11,7 @@ public class ListToMap {
         // To convert the list into map of id and object
         Map<Long, Customer> customerMap = InitializerHelper.getCustomerMap();
         System.out.println(customerMap.toString());
+
     }
-
-    
-
-    
 
 }

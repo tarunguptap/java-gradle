@@ -20,8 +20,6 @@ public class EncryptSalarySlip {
     private static String FILENAME = "C:/Users/tgupta/Downloads/Payslip.pdf";
     private static String destination = "C:/Users/tgupta/Downloads/TARUNGUPTA_NOV2019.pdf";
 
-    private static String FILENAME1 = "C:/Users/tgupta/Downloads/Statement_of_Total_Income_2019-2020.pdf";
-    private static String destination1 = "C:/Users/tgupta/Downloads/Statement_of_Total_Income_2019-2020.pdf1";
     /*
      * private static String FILENAME = "F:/Tarun Gupta/Personal/Personal/Salary Slips/Form16(2019-2020).pdf";
      * 
@@ -29,16 +27,16 @@ public class EncryptSalarySlip {
      */
 
     /** User password. Add password here */
-    public static byte[] USER = "tarung16".getBytes();
+    public static byte[] USER = "tarung".getBytes();
     /** Owner password. */
-    public static byte[] OWNER = "tarung16".getBytes();
+    public static byte[] OWNER = "tarung".getBytes();
 
     public static void main(String[] args) throws DocumentException {
 
         try {
 
-            PdfReader reader = new PdfReader(FILENAME1);
-            PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(destination1));
+            PdfReader reader = new PdfReader(FILENAME);
+            PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(destination));
 
             stamper.setEncryption(USER, OWNER, PdfWriter.ALLOW_PRINTING, PdfWriter.ENCRYPTION_AES_128
                     | PdfWriter.DO_NOT_ENCRYPT_METADATA);
